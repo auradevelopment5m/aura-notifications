@@ -38,7 +38,7 @@ RegisterCommand('testallservernotifs', function(source)
     
     local delay = 0
     for _, notifType in ipairs(types) do
-        Citizen.SetTimeout(delay, function()
+        SetTimeout(delay, function()
             ShowNotification(source, {
                 type = notifType,
                 title = 'Server Test: ' .. notifType,
@@ -65,7 +65,7 @@ end)
 exports('ShowNotification', ShowNotification)
 exports('ClearAllNotifications', ClearAllNotifications)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/testservernotif', 'Show a server notification', {
         { name = 'type', help = 'Notification type (info, success, error, etc.)' },
         { name = 'title', help = 'Notification title' },
